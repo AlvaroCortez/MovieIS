@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
+
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(movies)}">
+        <form th:action="@{/logout}" method="post">
+            <div class="col-sm-10"><h2>Movies Listing</h2></div>
+            <div class="col-sm-2" style="padding-top: 30px;">
+                     <span sec:authorize="isAuthenticated()">
+                         <input type="submit" value="Sign Out"/>
+                     </span>
+            </div>
+        </form>
+        <h2>Movie List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th sec:authorize="hasAnyAuthority('USER','ADMIN')">View</th>
+                <th sec:authorize="hasAuthority('ADMIN')">Edit</th>
+                <th sec:authorize="hasAuthority('ADMIN')">Delete</th>
+            </tr>
+            <tr th:each="movie : ${movies}">
+                <td th:text="${movie.id}"><a href="/movie/${movie.id}">Id</a></td>
+                <td th:text="${movie.name}">nzme</td>
+                <td sec:authorize="hasAnyAuthority('USER','ADMIN')"><a th:href="${'/movie/show/' + movie.id}">View</a></td>
+                <td sec:authorize="hasAuthority('ADMIN')"><a th:href="${'/movie/edit/' + movie.id}">Edit</a></td>
+                <td sec:authorize="hasAuthority('ADMIN')"><a th:href="${'/movie/delete/' + movie.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
