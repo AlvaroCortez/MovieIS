@@ -26,7 +26,7 @@
                 </tr>
                 <tr th:each="movie : ${movies}">
                     <td th:text="${movie.id}"><a href="/movie/${movie.id}">Id</a></td>
-                    <td th:text="${movie.name}">nzme</td>
+                    <td th:text="${movie.name}">name</td>
                     <td sec:authorize="hasAnyAuthority('USER','ADMIN')"><a th:href="${'/movie/show/' + movie.id}">View</a></td>
                     <td sec:authorize="hasAuthority('ADMIN')"><a th:href="${'/movie/edit/' + movie.id}">Edit</a></td>
                     <td sec:authorize="hasAuthority('ADMIN')"><a th:href="${'/movie/delete/' + movie.id}">Delete</a></td>
