@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="container">
-    <div th:if="${not #lists.isEmpty(movies)}">
+    <div th:if="${not #lists.isEmpty(  movies)}">
         <form th:action="@{/logout}" method="post">
             <h3 class="title">Movies Listing</h3>
             <div class="col-sm-2" style="padding-top: 10px;">
