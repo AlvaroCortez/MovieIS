@@ -2,22 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login Form</title>
+    <link rel="stylesheet" href="../static/css/style.css">
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-    <div th:if="${param.error}">
-        <label style="color:red">Invalid username and password.</label>
-    </div>
     <div th:if="${param.logout}">
         <label>
             You have been logged out.
         </label>
     </div>
 
-    <form th:action="@{/login}" method="post">
-        <table class="table table-striped">
+    <form class="block" th:action="@{/login}" method="post">
+        <table class="table table-striped _padding">
             <tr>
                 <td><label> User Name : <input type="text" name="username"/> </label></td>
             </tr>
@@ -25,10 +23,14 @@
                 <td><label> Password : <input type="password" name="password"/> </label></td>
             </tr>
             <tr>
-                <td> <button type="submit" class="btn btn-default">Sign In</button></td>
+                <td> <button type="submit" class="btn button btn-default">Sign In</button></td>
             </tr>
         </table>
     </form>
+
+    <div class="error-container" th:if="${param.error}">
+        <label class="error">Invalid username and password.</label>
+    </div>
 </div>
 </body>
 </html>

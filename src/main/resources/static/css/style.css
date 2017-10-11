@@ -1,8 +1,114 @@
-input[type=submit] {
-    background:none!important;
-    border:none;
-    padding:0!important;
-    color: blue;
+.button {
+    background: cadetblue;
+    border: 1px solid #4d634d;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 1px 0 0 #4d634d;
+    font-size: 15px;
+}
+
+.button:active{
+    box-shadow: 1px 1px 1px 0;
+}
+
+button:focus {
+    box-shadow: 1px 1px 1px 0;
+    border: 1px solid cadetblue;
+    outline: none;
+}
+
+input[type="text"],input[type="password"] {
+    height: 30px;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #d0d0d0;
+    float: right;
+    margin-left: 15px;
+    min-width: 250px;
+}
+
+.table{
+    border: 1px solid cadetblue;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table._padding{
+    padding: 15px 20px 5px;
+    margin-top: 20px;
+    border-collapse: separate;
+}
+
+.table th {
+    border-bottom: 1px solid cadetblue;
+}
+
+.table th, td {
+    padding: 10px;
+}
+
+.table a {
+    color: cadetblue;
     text-decoration: underline;
-    cursor:pointer;
+}
+
+.table label{
+    line-height: 34px;
+    height: 34px;
+    display: block;
+}
+
+.container {
+    display: block;
+    margin: auto;
+    max-width: 800px;
+    font-family: sans-serif;
+    background-color: #dbe2db;
+    border: 1px solid cadetblue;
+    border-radius: 4px;
+    padding: 30px;
+    font-size: 17px;
+}
+
+body {
+    height: 100%;
+    background-color: #f3f3f3;
+}
+
+.title{
+    font-weight: normal;
+    margin: 0;
+}
+
+form.block{
+    display: block;
+}
+
+.main-block{
+    margin: 15px 0 0;
+}
+
+.main-block__name{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.inline{
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.error-container{
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.error{
+    color: red;
 }
