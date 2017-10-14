@@ -19,9 +19,9 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @RequestMapping(value = "/movies", method = RequestMethod.GET)
-    public String list(Model model){
-        model.addAttribute("movies", movieService.listAllMovies());
+    @RequestMapping(value = "/movies/{id}", method = RequestMethod.GET)
+    public String list(@PathVariable Integer id, Model model){
+        model.addAttribute("movies", movieService.listAllMovies(id));
         return "listmovies";
     }
 
@@ -52,6 +52,6 @@ public class MovieController {
     @RequestMapping("movie/delete/{id}")
     public String delete(@PathVariable Long id){
         movieService.deleteMovie(id);
-        return "redirect:/movies";
+        return "redirect:/movies/0";
     }
 }

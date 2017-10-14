@@ -3,6 +3,7 @@ package com.netcracker.movie.service;
 import com.netcracker.movie.model.Movie;
 import com.netcracker.movie.resopitory.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,8 +17,8 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public Iterable<Movie> listAllMovies() {
-        return this.movieRepository.findAll();
+    public Iterable<Movie> listAllMovies(Integer id) {
+        return this.movieRepository.findAll(new PageRequest(id, 10));
     }
 
     @Override

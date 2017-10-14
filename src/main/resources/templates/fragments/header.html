@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 </head>
 <body>
 
@@ -12,8 +12,9 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
                     <ul class="nav navbar-nav">
-                        <li><a href="#" th:href="@{/movies}">Movies</a></li>
-                        <li><a href="#" th:href="@{/movie/new}" sec:authorize="hasAuthority('ADMIN')">Create Movie</a></li>
+                        <li><a href="#" th:href="@{/movies/0}">Movies</a></li>
+                        <li><a href="#" th:href="@{/movie/new}" sec:authorize="hasAuthority('ADMIN')">Create Movie</a>
+                        </li>
                         <li><a href="#" th:href="@{/login}">Sign In</a></li>
                     </ul>
                 </div>

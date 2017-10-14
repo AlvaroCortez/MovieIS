@@ -11,25 +11,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column
     private String username;
 
-    @Column
+    @Transient
     private String password;
+
+    private String encryptedPassword;
+    private Boolean enabled = true;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable
     // ~ defaults to @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "user_id"),
     //     inverseJoinColumns = @joinColumn(name = "role_id"))
     private List<Role> roles = new ArrayList<>();
-
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer failedLoginAttempts = 0;
 
     public String getUsername() {
         return username;
@@ -46,6 +41,23 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getEncryptedPassword() {
+        return encryptedPassword;
+    }
+
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
 
     public List<Role> getRoles() {
         return roles;
@@ -68,5 +80,13 @@ public class User {
     public void removeRole(Role role){
         this.roles.remove(role);
         role.getUsers().remove(this);
+    }
+
+    public Integer getFailedLoginAttempts() {
+        return failedLoginAttempts;
+    }
+
+    public void setFailedLoginAttempts(Integer failedLoginAttempts) {
+        this.failedLoginAttempts = failedLoginAttempts;
     }
 }
